@@ -5,8 +5,7 @@
 1. Clone the repository
 
 ```
-git clone <your-repo-link>
-cd chatbot-dashboard
+git clone https://github.com/PavaniNasum/coreoverAssessment
 ```
 
 2. Install dependencies
