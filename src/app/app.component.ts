@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  template: `
+    <nav>
+      <a routerLink="/chatbot" routerLinkActive="active">Chatbot</a>
+      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    </nav>
+
+    <router-outlet></router-outlet>
+  `,
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'chatbot-dashboard';
-}
+export class AppComponent {}

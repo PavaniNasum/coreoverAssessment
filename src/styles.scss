@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+nav {
+  display: flex;
+  gap: 20px;
+  background: #111827;
+  padding: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  border-bottom: 2px solid white;
+}
+.card-body {
+  scrollbar-width: thin;
+}
+
+@media (max-width: 576px) {
+  .card {
+    height: 100vh !important;
+    border-radius: 0;
+  }
+}

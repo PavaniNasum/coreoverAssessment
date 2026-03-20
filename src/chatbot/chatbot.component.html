@@ -1,0 +1,66 @@
+<div class="container-fluid vh-100 d-flex justify-content-center align-items-center bg-light">
+
+  <div class="card shadow w-100" style="max-width: 450px; height: 90vh;">
+
+ 
+    <div class="card-header bg-primary text-white text-center">
+      <i class="bi bi-robot"></i> AI Assistant
+    </div>
+
+   
+    <div class="card-body overflow-auto d-flex flex-column" style="background:#f8f9fa;">
+
+      <div *ngFor="let msg of messages" class="mb-2">
+
+     
+        <div *ngIf="msg.type === 'user'" class="text-end">
+          <span class="badge bg-primary p-2">
+            {{ msg.text }}
+          </span>
+          <div class="small text-muted">{{ msg.time }}</div>
+        </div>
+
+    
+        <div *ngIf="msg.type === 'bot'" class="text-start">
+          <span class="badge bg-secondary p-2">
+            {{ msg.text }}
+          </span>
+          <div class="small text-muted">{{ msg.time }}</div>
+        </div>
+
+      </div>
+
+      <!-- Typing -->
+      <div *ngIf="typing" class="text-start">
+        <span class="badge bg-secondary">
+          <i class="bi bi-three-dots"></i>
+        </span>
+      </div>
+
+    </div>
+
+  
+    <div class="card-footer d-flex gap-2">
+
+      <button class="btn btn-outline-primary" (click)="startVoice()">
+        <i class="bi bi-mic"></i>
+      </button>
+
+      
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="inputText"
+        (keyup.enter)="sendMessage()"
+        placeholder="Type a message..."
+      />
+
+      <button class="btn btn-primary" (click)="sendMessage()">
+        <i class="bi bi-send"></i>
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

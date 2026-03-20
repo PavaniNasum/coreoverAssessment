@@ -1,0 +1,15 @@
+nav {
+  display: flex;
+  gap: 20px;
+  background: #111827;
+  padding: 12px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.active {
+  border-bottom: 2px solid white;
+}

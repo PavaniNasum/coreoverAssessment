@@ -1,0 +1,15 @@
+<input [(ngModel)]="searchText" placeholder="Search">
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Amount</th>
+  </tr>
+
+  <tr *ngFor="let row of filteredData">
+    <td>{{row.name}}</td>
+    <td>{{row.date | date}}</td>
+    <td>{{row.amount}}</td>
+  </tr>
+</table>

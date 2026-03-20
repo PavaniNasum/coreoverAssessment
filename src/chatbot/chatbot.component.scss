@@ -1,0 +1,49 @@
+.chat-wrapper {
+  max-width: 400px;
+  margin: auto;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  background: #4f46e5;
+  color: white;
+  padding: 10px;
+}
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  background: #f3f4f6;
+}
+
+.message {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.user {
+  background: #4f46e5;
+  color: white;
+  text-align: right;
+}
+
+.bot {
+  background: #e5e7eb;
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+  background: gray;
+  margin: 2px;
+  display: inline-block;
+  border-radius: 50%;
+  animation: blink 1.4s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 1; }
+}

@@ -1,0 +1,77 @@
+<div class="container py-3">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Dashboard</h3>
+
+    <select class="form-select w-auto"
+            [(ngModel)]="range"
+            (change)="updateChart()">
+      <option value="week">Week</option>
+      <option value="month">Month</option>
+      <option value="year">Year</option>
+    </select>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="row mb-3">
+    <div class="col-md-4" *ngFor="let k of kpis">
+      <div class="card shadow-sm p-3">
+        <h6>{{ k.title }}</h6>
+        <h4>{{ k.value }}</h4>
+        <small [class.text-success]="k.change>0"
+               [class.text-danger]="k.change<0">
+          {{ k.change }}%
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <canvas baseChart [data]="lineData" type="line"></canvas>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <canvas baseChart [data]="barData" type="bar"></canvas>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <canvas baseChart [data]="pieData" type="pie"></canvas>
+    </div>
+  </div>
+
+  <!-- Search -->
+  <input class="form-control my-3"
+         [(ngModel)]="search"
+         placeholder="Search..." />
+
+  <!-- Table -->
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th (click)="sort('name')">Name</th>
+          <th>Category</th>
+          <th (click)="sort('amount')">Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let d of filteredData">
+          <td>{{ d.name }}</td>
+          <td>{{ d.category }}</td>
+          <td>{{ d.amount }}</td>
+          <td>{{ d.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button class="btn btn-primary" (click)="exportCSV()">
+    Export CSV
+  </button>
+
+</div>
